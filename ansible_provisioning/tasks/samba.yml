@@ -1,0 +1,35 @@
+- name: Install Samba
+  apt:
+    name: samba
+    state: present
+    update_cache: yes
+
+- name: Create Samba configuration for RetroPie ROMs
+  blockinfile:
+    path: /etc/samba/smb.conf
+    block: |
+      [RetroPie]
+      comment = RetroPie ROMs
+      path = /home/pi/RetroPie/roms
+      browseable = yes
+      read only = no
+      guest ok = yes
+    insertafter: EOF
+
+- name: Set permissions on the RetroPie ROMs directory
+  file:
+    path: /home/pi/RetroPie/roms
+    owner: pi
+    group: pi
+    mode: '0755'
+    state: directory
+
+- name: Restart Samba service
+  service:
+    name: smbd
+    state: restarted
+
+- name: Ensure Samba service is enabled at boot
+  service:
+    name: smbd
+    enabled: yes

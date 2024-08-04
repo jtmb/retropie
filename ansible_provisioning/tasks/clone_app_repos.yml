@@ -1,0 +1,33 @@
+- name: Clone lucinda.branconet.com
+  tags:
+    - lucinda.branconet.com
+  ansible.builtin.git:
+    repo: https://github.com/jtmb/lucinda-art-gallery.git
+    dest: '{{container_volumes_location}}/ws-lucinda'
+    version: master
+
+- name: Clone santos.branconet.com
+  tags:
+    - santos.branconet.com
+  ansible.builtin.git:
+    repo: https://github.com/jtmb/santosweb.git
+    dest: '{{container_volumes_location}}/ws-santos'
+    version: master
+
+- name: Clone aplb.branconet.com
+  tags:
+    - aplb.branconet.com
+  ansible.builtin.git:
+    repo: https://github.com/chucky747/aplb.branconet.com.git
+    dest: '{{container_volumes_location}}/ws-aplb'
+    version: master
+
+- name: Clone mc.branconet.lan
+  tags:
+    - mc.branconet.lan
+    - mc
+  ansible.builtin.git:
+    repo: https://github.com/jtmb/minecraft-html.git
+    dest: '{{container_volumes_location}}/mc-branconet-lan'
+    version: main
+    

@@ -1,0 +1,28 @@
+# PRE-provisioning VM
+- name: "Provision Enviorment"
+  strategy: linear
+  hosts: retropie
+  become: true 
+  tasks:
+  
+  - name: Debiug VARS
+    include_tasks: 
+      file: tasks/debug.yml
+      apply:
+        tags: always
+    tags: always
+  
+  - name: Install Samba share
+    include_tasks: 
+      file: tasks/samba.yml
+      apply:
+        tags: [packages, smb]
+    tags: [packages, smb]
+
+  - name: Setup SSH
+    include_tasks: 
+      file: tasks/ssh_setup.yml
+      apply:
+        tags: ssh
+    tags: ssh
+

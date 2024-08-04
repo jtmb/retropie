@@ -1,0 +1,16 @@
+- name: Change the SSH port to 2002
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?Port '
+    line: 'Port 2002'
+    state: present
+
+- name: Restart SSH service to apply changes
+  service:
+    name: ssh
+    state: restarted
+
+- name: Ensure SSH service is enabled at boot
+  service:
+    name: ssh
+    enabled: yes
