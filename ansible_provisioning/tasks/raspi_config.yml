@@ -1,0 +1,11 @@
+- name: Uncomment disable_overscan=1 in /boot/config.txt
+  lineinfile:
+    path: /boot/config.txt
+    regexp: '^#disable_overscan=1'
+    line: 'disable_overscan=1'
+    state: present
+  tags: config
+
+- name: Ensure changes are saved to disk
+  command: sync
+  tags: config

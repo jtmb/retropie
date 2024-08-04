@@ -19,10 +19,18 @@
         tags: [packages, smb]
     tags: [packages, smb]
 
+  - name: Configure Raspi boot config
+    include_tasks: 
+      file: tasks/raspi_config.yml
+      apply:
+        tags: config
+    tags: config
+
   - name: Setup SSH
     include_tasks: 
       file: tasks/ssh_setup.yml
       apply:
         tags: ssh
     tags: ssh
+
 
