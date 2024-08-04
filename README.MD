@@ -1,7 +1,3 @@
-## RETROPIE
-
-
-
 <h1 align="center">
   <a href="https://github.com/jtmb">
     <img src="https://www.petrockblock.com/wp-content/uploads/2015/06/RetroPieLogo2015Download.png" alt="Logo" width="140" height="125">
