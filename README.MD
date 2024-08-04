@@ -5,7 +5,7 @@
 </h1>
 
 <div align="center">
-  <b>EZ Swarm</b> - A simple repo for retropie env specific configs and setups.
+  <b>RETROPIE</b> - A simple repo for retropie env specific configs and setups.
   <br />
   <br />
   <a href="https://github.com/jtmb/retropie/issues/new?assignees=&labels=bug&title=bug%3A+">Report a Bug</a>
