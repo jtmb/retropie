@@ -1,3 +1,5 @@
+#Steam Link Fixes
+  # Disable overscaning to fix steamlink black screen issue
 - name: Uncomment disable_overscan=1 in /boot/config.txt
   lineinfile:
     path: /boot/config.txt
@@ -5,7 +7,18 @@
     line: 'disable_overscan=1'
     state: present
   tags: config
-
 - name: Ensure changes are saved to disk
   command: sync
   tags: config
+
+  # Disable false positive video memory check
+- name: Ensure SteamLink directory exists
+  file:
+    path: /home/pi/.local/share/SteamLink
+    state: directory
+    mode: '0755'
+- name: Create .ignore_gpumem file
+  file:
+    path: /home/pi/.local/share/SteamLink/.ignore_gpumem
+    state: touch
+    mode: '0644'
