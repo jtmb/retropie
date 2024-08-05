@@ -26,6 +26,13 @@
         tags: config
     tags: config
 
+  - name: Configure aliases
+    include_tasks: 
+      file: tasks/alias.yml
+      apply:
+        tags: alias
+    tags: alias   
+
   - name: Setup SSH
     include_tasks: 
       file: tasks/ssh_setup.yml

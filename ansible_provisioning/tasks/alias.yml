@@ -1,0 +1,20 @@
+- name: Ensure .bashrc file exists
+  file:
+    path: /home/{{ ansible_user }}/.bashrc
+    state: touch
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0644'
+  tags: alias
+
+- name: Add retropie setup alias to .bashrc
+  lineinfile:
+    path: /home/{{ ansible_user }}/.bashrc
+    line: 'alias setup="sudo RetroPie-Setup/retropie_setup.sh"'
+    create: yes
+  tags: alias
+- name: Source .bashrc to apply changes
+  shell: source /home/{{ ansible_user }}/.bashrc
+  args:
+    executable: /bin/bash
+  tags: alias
