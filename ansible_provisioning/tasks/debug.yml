@@ -8,12 +8,12 @@
 
 - name: Gather Ubuntu version
   command: lsb_release -rs
-  register: ubuntu_version
+  register: os_version
 
 - name: Ensure Debian version is a float
   set_fact:
-    ubuntu_version_number: "{{ ubuntu_version.stdout | float }}"
+    os_version_number: "{{ os_version.stdout | float }}"
 
 - name: Debug Debian version number
   debug:
-    msg: "The Ubuntu version number is {{ ubuntu_version_number }}"
+    msg: "The Debian version number is {{ os_version_number }}"
