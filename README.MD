@@ -51,7 +51,7 @@ The user to connect to over ssh, default retro pie ssh pass is pi
 SSH port to connect to PI, default is 22.
 
 ```shell
-    retropie=192.168.0.xx
+    RETROPIE_IP=192.168.0.xx
 ```  
 IP of your retropi.
 ## Contributing
