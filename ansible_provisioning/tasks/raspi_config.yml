@@ -24,10 +24,10 @@
     state: touch
     mode: '0644'
   tags: config
-  
+
 # OS Specific Fixes
   # Make linux console font bigger 
-- name: Set console font
+- name: Set console font and size for tv
   command: setfont /usr/share/consolefonts/Lat15-TerminusBold20x10.psf.gz
   tags: config
 
@@ -39,5 +39,15 @@
       # Add your changes here
       # Example change:
       FONTFACE="TerminusBold"
-      FONTSIZE="20x10"
+      FONTSIZE="100x80"
+  tags: config
+
+# Enable 4k 60hz over microHDMI
+- name: Enable 4k60hz on PI
+  blockinfile:
+    path: /boot/config.txt
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
+    block: |
+      # Add your changes here
+      hdmi_enable_4kp60=1
   tags: config

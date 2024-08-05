@@ -40,4 +40,9 @@
         tags: ssh
     tags: ssh
 
-
+  - name: Reboot
+    include_tasks: 
+      file: tasks/reboot.yml
+      apply:
+        tags: reboot
+    tags: reboot
