@@ -30,9 +30,20 @@
 - Ansible installed on your machine
 
 ### Getting Started
+
+
 A simple run command gets your instance running:
+
+( *Make sure to set your vars in ansible_provisioning/vars/vars.sh* )
 ```shell
 ./run-ansible.sh
+```
+
+or pass in the vars yourself at run time:
+```shell
+./run-ansible.sh \
+    RETROPIE_IP=192.168.0.XX SSH_PORT=2002 \
+    ANSIBLE_SSH_USER=pi ANSIBLE_SUDO_PASS=raspberry \
 ```
 
 ## Environment Variables explained
