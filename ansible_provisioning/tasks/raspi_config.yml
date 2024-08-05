@@ -24,9 +24,9 @@
     state: touch
     mode: '0644'
   tags: config
-
-# Make linux console font bigger 
-
+  
+# OS Specific Fixes
+  # Make linux console font bigger 
 - name: Set console font
   command: setfont /usr/share/consolefonts/Lat15-TerminusBold20x10.psf.gz
   tags: config
