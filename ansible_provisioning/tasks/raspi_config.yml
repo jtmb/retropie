@@ -17,8 +17,27 @@
     path: /home/pi/.local/share/SteamLink
     state: directory
     mode: '0755'
+  tags: config
 - name: Create .ignore_gpumem file
   file:
     path: /home/pi/.local/share/SteamLink/.ignore_gpumem
     state: touch
     mode: '0644'
+  tags: config
+
+# Make linux console font bigger 
+
+- name: Set console font
+  command: setfont /usr/share/consolefonts/Lat15-TerminusBold20x10.psf.gz
+  tags: config
+
+- name: Edit console-setup file
+  blockinfile:
+    path: /etc/default/console-setup
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
+    block: |
+      # Add your changes here
+      # Example change:
+      FONTFACE="TerminusBold"
+      FONTSIZE="20x10"
+  tags: config
