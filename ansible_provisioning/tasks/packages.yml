@@ -1,0 +1,8 @@
+- name: Install Packages through retropie script
+  shell: RetroPie-Setup/retropie_packages.sh {{item}}
+  with_items: 
+    - 'steamlink'
+    - 'skyscraper'
+  args:
+    executable: /bin/bash
+  tags: packages

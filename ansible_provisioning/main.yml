@@ -26,6 +26,13 @@
         tags: config
     tags: config
 
+  - name: Configure optional packages
+    include_tasks: 
+      file: tasks/packages.yml
+      apply:
+        tags: packages
+    tags: packages
+
   - name: Configure aliases
     include_tasks: 
       file: tasks/alias.yml
@@ -39,6 +46,13 @@
       apply:
         tags: ssh
     tags: ssh
+  
+  - name: Add Cron Jobs
+    include_tasks: 
+      file: tasks/cron.yml
+      apply:
+        tags: cron
+    tags: cron
 
   - name: Reboot
     include_tasks: 

@@ -1,0 +1,64 @@
+- name: Create startup folder
+  ansible.builtin.file:
+    path: "/cron"
+    state: directory
+  tags: cron
+
+- name: Remove cron file scripts
+  file:
+    path: '{{item}}'
+    state: absent
+  with_items:
+    - /cron/skyscraper_job.sh
+  tags: cron
+
+- name: Create cron file sripts
+  ansible.builtin.file:
+    path: '{{item}}'
+    state: touch
+    mode: u+rw,g-wx,o-rwx
+  with_items:
+    - /cron/skyscraper_job.sh
+  tags: cron
+
+- name: Make Scripts Executable
+  file: dest={{item}} mode=a+x
+  with_items:
+    - /cron/skyscraper_job.sh
+  tags: cron
+
+- name: Write Cron Skyscrapre scans (Download Sources)
+  lineinfile: 
+    dest: "/cron/skyscraper_job.sh"
+    line: 'killall emulationstation || true && /opt/retropie/supplementary/skyscraper/Skyscraper -p "{{item}}" -g /home/pi/.emulationstation/gamelists/"{{item}}" -o /home/pi/.emulationstation/downloaded_media/"{{item}}" -s screenscraper --flags unattend,skipped,videos'
+  with_items: "{{EMULATORS}}"
+  tags: cron
+
+- name: Write Cron Skyscrapre scans (Add to game list)
+  lineinfile: 
+    dest: "/cron/skyscraper_job.sh"
+    line: /opt/retropie/supplementary/skyscraper/Skyscraper -p "{{item}}" -g /home/pi/.emulationstation/gamelists/"{{item}}" -o /home/pi/.emulationstation/downloaded_media/"{{item}}" --flags unattend,skipped,videos
+  with_items: "{{EMULATORS}}"
+  tags: cron
+
+
+- name: Add boot command Skyscraper script
+  blockinfile:
+    path: "/cron/skyscraper_job.sh"
+    marker: "# {mark} ANSIBLE MANAGED REBOOT BLOCK"
+    block: |
+      sudo reboot
+  tags: cron
+
+- name: Create Crontab entry for skyscraper jobs
+  ansible.builtin.cron:
+    name: "skyscraper nightly Job"
+    special_time: daily
+    job: " bash /cron/skyscraper_job.sh /cron/skyscraper_job.log 2>&1"
+  tags: cron
+
+- name: Change ownership of /cron to pi
+  command: chown -R pi:pi /cron
+
+- name: Set permissions of /cron to 755
+  command: chmod -R 755 /cron
