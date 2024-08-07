@@ -5,21 +5,12 @@
 
 # VAULT AUTH
 source ansible_provisioning/wrapper-scripts/vault-auth.sh 
+source ansible_provisioning/wrapper-scripts/ssh-certType-resolver.sh
 
 # ANSIBLE VARS
 ANSIBLE_SUDO_PASS=$(vault kv get -field=admin_pwd kv/admin_pass)
 ANSIBLE_SSH_USER=pi
 SSH_PORT=2002
-
-# Cert Location, resolves certificate type
-# Define the primary and fallback SSH certificate paths
-    PRIMARY_CERT="$HOME/.ssh/id_ed25519"
-    FALLBACK_CERT="$HOME/.ssh/id_rsa"
-    if [[ -f "$PRIMARY_CERT" ]]; then
-    SSH_CERT="$PRIMARY_CERT"
-    else
-    SSH_CERT="$FALLBACK_CERT"
-    fi
 
 # INSTANCE IP's
 RETROPIE_IP=192.168.0.28
