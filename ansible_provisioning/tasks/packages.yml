@@ -3,6 +3,12 @@
   with_items: 
     - 'steamlink'
     - 'skyscraper'
+    - 'lr-prboom'
+    - 'darkplaces-quake'
+    - 'eduke32'
+    - 'ioquake3'
+    - 'kodi'
+    - 'lzdoom'
   args:
     executable: /bin/bash
   tags: packages

@@ -50,15 +50,17 @@
       sudo reboot
   tags: cron
 
-- name: Create Crontab entry for skyscraper jobs
+- name: Create Crontab entry for skyscraper jobs at 4 am
   ansible.builtin.cron:
     name: "skyscraper nightly Job"
-    special_time: daily
+    minute: "0"
+    hour: "4"
     job: " bash /cron/skyscraper_job.sh /cron/skyscraper_job.log 2>&1"
   tags: cron
 
 - name: Change ownership of /cron to pi
   command: chown -R pi:pi /cron
-
+  tags: cron
 - name: Set permissions of /cron to 755
   command: chmod -R 755 /cron
+  tags: cron
