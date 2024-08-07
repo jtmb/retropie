@@ -8,30 +8,24 @@
   - name: Debiug VARS
     include_tasks: 
       file: tasks/debug.yml
-      apply:
-        tags: always
     tags: always
   
   - name: Install Samba share
     include_tasks: 
       file: tasks/samba.yml
-      apply:
-        tags: [packages, smb]
     tags: [packages, smb]
 
   - name: Configure Raspi boot config
     include_tasks: 
       file: tasks/raspi_config.yml
-      apply:
-        tags: config
     tags: config
 
   - name: Configure optional packages
     include_tasks: 
       file: tasks/packages.yml
-      apply:
-        tags: packages
-    tags: packages
+    tags: 
+      - packages
+      - bios
 
   - name: Configure aliases
     include_tasks: 
@@ -43,20 +37,14 @@
   - name: Setup SSH
     include_tasks: 
       file: tasks/ssh_setup.yml
-      apply:
-        tags: ssh
     tags: ssh
   
   - name: Add Cron Jobs
     include_tasks: 
       file: tasks/cron.yml
-      apply:
-        tags: cron
     tags: cron
 
   - name: Reboot
     include_tasks: 
       file: tasks/reboot.yml
-      apply:
-        tags: reboot
     tags: reboot

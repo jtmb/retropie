@@ -12,3 +12,15 @@
   args:
     executable: /bin/bash
   tags: packages
+
+# Install the playstation bios file for better psx compatibility 
+- name: Download PlayStation BIOS file
+  ansible.builtin.get_url:
+    url: "https://archive.org/download/PlayStationBIOSFilesNAEUJP/{{item}}"
+    dest: "/home/pi/RetroPie/BIOS/{{item}}"
+    mode: '0644'
+  with_items:
+   - 'scph5500.bin' #NA
+   - 'scph5501.bin' #EU
+   - 'scph5502.bin' #JAPAN
+  tags: bios
