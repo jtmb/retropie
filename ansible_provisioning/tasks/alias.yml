@@ -18,3 +18,15 @@
   args:
     executable: /bin/bash
   tags: alias
+
+- name: Add retropie cpu temp alias to .bashrc
+  lineinfile:
+    path: /home/{{ ansible_user }}/.bashrc
+    line: 'alias cpu-temp="while true; do /opt/vc/bin/vcgencmd measure_temp; sleep 1; done"'
+    create: yes
+  tags: alias
+- name: Source .bashrc to apply changes
+  shell: source /home/{{ ansible_user }}/.bashrc
+  args:
+    executable: /bin/bash
+  tags: alias
