@@ -7,7 +7,7 @@
 source $homedir/ansible_provisioning/wrapper-scripts/vault-auth.sh 
 
 # ANSIBLE VARS
-ANSIBLE_SUDO_PASS=$(vault kv get -field=admin_pwd kv/admin_pass)
+ANSIBLE_SUDO_PASS=raspberry #$(vault kv get -field=admin_pwd kv/admin_pass)
 ANSIBLE_SSH_USER=pi
 SSH_PORT=22
 
@@ -15,7 +15,7 @@ SSH_PORT=22
 RETROPIE_IP=192.168.0.28
 
 # List of pre-installed emulators aand optional packages in JSON format
-EMULATORS='[\"arcade\",\"atari7800\",\"gba\",\"gbc\",\"genesis\",\"mame-liberto\",\"megadrive\",\"ports\",\"snes\",\"psx\"]'
+EMULATORS='[\"arcade\",\"atari7800\",\"gba\",\"gbc\",\"genesis\",\"mame-liberto\",\"megadrive\",\"ports\",\"snes\",\"psx\",\"n64\"]'
 OPT_PACKAGES='["steamlink","skyscraper","lr-prboom","darkplaces-quake","eduke32","ioquake3","kodi","lzdoom"]'
 
 # OVERCLOCKING - ALL VALUES IN MHz (PROCEED AT OWN RISK)
