@@ -1,10 +1,9 @@
 #Steam Link Fixes
-  # Set the timezone
+  # Set the timezone to ETC
 - name: Set the timezone to "America/New_York"
   ansible.builtin.timezone:
     name: "America/New_York"
   tags: timezone
-
 
   # Disable overscaning to fix steamlink black screen issue
 - name: Uncomment disable_overscan=1 in /boot/config.txt
