@@ -16,7 +16,7 @@ SSH_PORT=2002
 RETROPIE_IP=192.168.0.28
 
 # List of pre-installed emulators aand optional packages in JSON format
-EMULATORS='[\"arcade\",\"atari7800\",\"gba\",\"gbc\",\"genesis\",\"mame-liberto\",\"megadrive\",\"ports\",\"snes\",\"psx\",\"n64\"]'
+EMULATORS='[\"arcade\",\"atari7800\",\"gba\",\"gbc\",\"genesis\",\"mame-liberto\",\"megadrive\",\"ports\",\"snes\",\"psx\",\"n64\,\"mastersystem\"]'
 OPT_PACKAGES='["steamlink","skyscraper","lr-prboom","darkplaces-quake","eduke32","ioquake3","kodi","lzdoom"]'
 
 # OVERCLOCKING - ALL VALUES IN MHz (PROCEED AT OWN RISK)
