@@ -1,4 +1,4 @@
-- name: Change the SSH port to 2002
+- name: Change the SSH port to {{ssh_port}}
   lineinfile:
     path: /etc/ssh/sshd_config
     regexp: '^#?Port '
