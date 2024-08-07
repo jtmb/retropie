@@ -48,7 +48,7 @@
       FONTSIZE="100x80"
   tags: config
 
-# Enable 4k 60hz over microHDMI
+  # Enable 4k 60hz over microHDMI
 - name: Enable 4k60hz on PI
   blockinfile:
     path: /boot/config.txt
@@ -57,3 +57,16 @@
       # Add your changes here
       hdmi_enable_4kp60=1
   tags: config
+
+  # Overclock pi to 2GHZ
+- name: Add overclock settings
+  blockinfile:
+    path: /boot/config.txt
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
+    block: |
+      # Overclock to {{OC_CPU_FREQ}} MHz
+      arm_freq={{OC_CPU_FREQ}}
+      over_voltage={{OC_CPU_OVERVOLT}}
+      gpu_freq={{OC_GPU_FREQ}}
+  tags: overclock
+  when: OVERCLOCK_RETROPIE == "true"

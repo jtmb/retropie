@@ -18,7 +18,7 @@
   - name: Configure Raspi boot config
     include_tasks: 
       file: tasks/raspi_config.yml
-    tags: config
+    tags: [config, overclock]
 
   - name: Configure optional packages
     include_tasks: 

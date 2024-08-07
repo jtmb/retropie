@@ -18,3 +18,8 @@ RETROPIE_IP=192.168.0.28
 EMULATORS='[\"arcade\",\"atari7800\",\"gba\",\"gbc\",\"genesis\",\"mame-liberto\",\"megadrive\",\"ports\",\"snes\",\"psx\"]'
 OPT_PACKAGES='["steamlink","skyscraper","lr-prboom","darkplaces-quake","eduke32","ioquake3","kodi","lzdoom"]'
 
+# OVERCLOCKING - ALL VALUES IN MHz (PROCEED AT OWN RISK)
+OVERCLOCK_RETROPIE=true
+OC_CPU_FREQ=1770 #default 800
+OC_CPU_OVERVOLT=600 #default 0
+OC_GPU_FREQ=750  #default 700

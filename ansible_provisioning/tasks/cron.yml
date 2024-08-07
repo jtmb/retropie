@@ -19,12 +19,22 @@
     mode: u+rw,g-wx,o-rwx
   with_items:
     - /cron/skyscraper_job.sh
+    - /cron/skyscraper_job.log
   tags: cron
+
 
 - name: Make Scripts Executable
   file: dest={{item}} mode=a+x
   with_items:
     - /cron/skyscraper_job.sh
+  tags: cron
+
+- name: Add timestamp Skyscraper script
+  blockinfile:
+    path: "/cron/skyscraper_job.sh"
+    marker: "# {mark} ANSIBLE MANAGED CRON JOB"
+    block: |
+      echo "Skyscraper job started at $(date)" >> /cron/skyscraper_job.log
   tags: cron
 
 - name: Write Cron Skyscrapre scans (Download Sources)
@@ -65,3 +75,5 @@
 - name: Set permissions of /cron to 755
   command: chmod -R 755 /cron
   tags: cron
+
+  
