@@ -4,7 +4,7 @@
 #############################################################################################################################################################
 
 # VAULT AUTH
-source $homedir/ansible_provisioning/wrapper-scripts/vault-auth.sh 
+source ansible_provisioning/wrapper-scripts/vault-auth.sh 
 
 # ANSIBLE VARS
 ANSIBLE_SUDO_PASS=raspberry #$(vault kv get -field=admin_pwd kv/admin_pass)
@@ -20,6 +20,6 @@ OPT_PACKAGES='["steamlink","skyscraper","lr-prboom","darkplaces-quake","eduke32"
 
 # OVERCLOCKING - ALL VALUES IN MHz (PROCEED AT OWN RISK)
 OVERCLOCK_RETROPIE=true
-OC_CPU_FREQ=1770 #default 800
+OC_CPU_FREQ=1750 #default 800
 OC_CPU_OVERVOLT=600 #default 0
-OC_GPU_FREQ=750  #default 700
+OC_GPU_FREQ=700  #default 700
