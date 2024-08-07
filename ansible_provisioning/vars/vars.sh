@@ -22,4 +22,4 @@ OPT_PACKAGES='["steamlink","skyscraper","lr-prboom","darkplaces-quake","eduke32"
 OVERCLOCK_RETROPIE=true
 OC_CPU_FREQ=1750 #default 800
 OC_CPU_OVERVOLT=600 #default 0
-OC_GPU_FREQ=700  #default 700
+OC_GPU_FREQ=740  #default 700
