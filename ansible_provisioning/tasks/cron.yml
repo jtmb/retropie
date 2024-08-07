@@ -56,6 +56,7 @@
     minute: "0"
     hour: "2"
     job: " bash /cron/skyscraper_job.sh /cron/skyscraper_job.log 2>&1"
+    user: pi
   tags: cron
 
 - name: Change ownership of /cron to pi
