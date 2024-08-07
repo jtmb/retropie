@@ -1,14 +1,6 @@
-- name: Install Packages through retropie script
+- name: Install optional packages through retropie setup script
   shell: RetroPie-Setup/retropie_packages.sh {{item}}
-  with_items: 
-    - 'steamlink'
-    - 'skyscraper'
-    - 'lr-prboom'
-    - 'darkplaces-quake'
-    - 'eduke32'
-    - 'ioquake3'
-    - 'kodi'
-    - 'lzdoom'
+  with_items: '{{OPT_PACKAGES}}'
   args:
     executable: /bin/bash
   tags: packages

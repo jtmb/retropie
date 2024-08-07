@@ -22,7 +22,7 @@
 
   - name: Configure optional packages
     include_tasks: 
-      file: tasks/packages.yml
+      file: tasks/opt_packages.yml
     tags: 
       - packages
       - bios

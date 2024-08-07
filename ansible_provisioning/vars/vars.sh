@@ -16,3 +16,5 @@ RETROPIE_IP=192.168.0.28
 
 # List of pre-installed emulators in JSON format
 EMULATORS='[\"arcade\",\"atari7800\",\"gba\",\"gbc\",\"genesis\",\"mame-liberto\",\"megadrive\",\"ports\",\"snes\",\"psx\",\"neogeo\"]'
+OPT_PACKAGES='["steamlink","skyscraper","lr-prboom","darkplaces-quake","eduke32","ioquake3","kodi","lzdoom"]'
+
