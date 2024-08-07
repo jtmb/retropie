@@ -50,11 +50,11 @@
       sudo reboot
   tags: cron
 
-- name: Create Crontab entry for skyscraper jobs at 4 am
+- name: Create Crontab entry for skyscraper jobs at 2 am
   ansible.builtin.cron:
     name: "skyscraper nightly Job"
     minute: "0"
-    hour: "4"
+    hour: "2"
     job: " bash /cron/skyscraper_job.sh /cron/skyscraper_job.log 2>&1"
   tags: cron
 
