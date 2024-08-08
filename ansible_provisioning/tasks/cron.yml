@@ -51,13 +51,16 @@
   with_items: "{{EMULATORS}}"
   tags: cron
 
-
-- name: Add boot command Skyscraper script
+- name: Add emulation station boot command Skyscraper script
   blockinfile:
     path: "/retro-scripts/skyscraper_job.sh"
-    marker: "# {mark} ANSIBLE MANAGED REBOOT BLOCK"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK"
     block: |
-      sudo reboot
+      # Restart EmulationStation
+      echo "Restarting EmulationStation..."
+      nohup emulationstation > /dev/null 2>&1 &
+      # Indicate script completion
+      echo "EmulationStation has been restarted in the background."
   tags: cron
 
 - name: Create Crontab entry for skyscraper jobs at 2 am
