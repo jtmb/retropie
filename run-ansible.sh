@@ -20,4 +20,4 @@ cd ansible_provisioning && \
     # cron
     # packages
     # bios
-    # oiverclock
+    # overclock
