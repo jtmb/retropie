@@ -27,7 +27,7 @@
 ---  
 ## Prerequisites
 - Debian based Operating system with RetroPie with ssh enabled
-- Ansible installed on your machine
+- [Ansible](how-to/How-to-install-ansible.md) installed on your machine
 
 ### Getting Started
 

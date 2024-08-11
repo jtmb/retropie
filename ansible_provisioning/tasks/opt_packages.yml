@@ -1,4 +1,5 @@
-- name: Install optional packages through retropie setup script
+# Due to having to build packages from source, this step can take up to an hour - depending on packages installed. 
+- name: Install optional packages through retropie setup script 
   shell: RetroPie-Setup/retropie_packages.sh {{item}}
   with_items: '{{OPT_PACKAGES}}'
   args:
